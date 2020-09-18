@@ -1,0 +1,25 @@
+table, th, td {
+    border-collapse: collapse;
+    margin-top: 40px;
+    padding: 30px;
+    border: 1px solid #222;
+}
+  
+.form {
+    margin: 40px auto;
+}
+  
+h1 {
+    font: 500 32px Roboto;
+    text-align: center;
+}
+  
+p {
+    font-size: 21px;
+}
+  
+.container {
+    width: 80%;
+    margin: auto;
+}
+  

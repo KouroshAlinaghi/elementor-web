@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Elementor!</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+</head>
+  <body>
+    <div class="container mt-4">
+      <form method="get" action="/" class="mb-4">
+        <div class="row">
+          <div class="col">
+            <label for="a_n">Atomic Number</label>
+            <input type="number" name="atomic_number" id="a_n" class="form-control">
+          </div>
+          <div class="col">
+            <label for="s">Symbol</label>
+            <input type="text" name="symbol" id="s" class="form-control">
+          </div>
+          <div class="col">
+            <label for="c">Charge</label>
+            <input type="number" name="charge" value="0" class="form-control" id="c">
+          </div>
+          <div class="col">
+            <br>
+            <button type="submit" class="btn btn-primary mt-2">Search</button>
+          </div>
+        </div>
+      </form>
+    
+    <% if element.nil? %>
+      <h3>Please Fill The Above Form</h3>
+    <% else %>
+        <h1><%= element.symbol %></h1>
+        <table class="table table-bordered">
+          <tr>
+            <th>Full Name</th>
+            <th>Atomic Number</th>
+            <th>Fake Atomic Number</th>
+            <th>Charge</th>
+            <th>Group</th>
+            <th>Period</th>
+            <th>Is a nobel gas?</th>
+          </tr>
+          <tr>
+            <td><%= element.name.capitalize %></td>
+            <td><%= element.atomic_number %></td>
+            <td><%= element.fake_atomic_number %></td>
+            <td><%= element.charge %></td>
+            <td><%= element.group %></td>
+            <td><%= element.period %></td>
+            <td><%= element.is_nobel_gas ? "Yes" : "No" %></td>
+          </tr>
+        </table> 
+        <p><b>Sorted Electron Configuration: </b><%= element.electron_configuration.map(&:to_s).join(", ") %><p>
+        <p><b>Non-Sorted Electron Configuration: </b><%= element.electron_configuration(sorted: false).map(&:to_s).join(", ") %><p>
+      </div>
+    <% end %>
+  </body>
+</html>

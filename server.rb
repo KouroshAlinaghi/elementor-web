@@ -1,8 +1,6 @@
 require 'sinatra'
 require 'little_elementor'
 
-set :bind, ENV["EL_HOST"]
-
 get "/" do
   def get_el()
     if params.has_key?(:atomic_number) && !params[:atomic_number].empty?

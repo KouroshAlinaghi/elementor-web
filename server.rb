@@ -1,8 +1,7 @@
 require 'sinatra'
 require 'little_elementor'
 
-set :bind, ENV["ELEMENTOR_HOST"]
-set :port, ENV["ELEMENTOR_PORT"]
+set :bind, ENV["EL_HOST"]
 
 get "/" do
   def get_el()

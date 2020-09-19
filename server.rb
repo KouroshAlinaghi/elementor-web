@@ -14,10 +14,16 @@ get "/" do
     end
   end
 
+  def electron_configuration_to_s(e_c)
+    str = ""
+    e_c.each {|o| str += "#{o.n}#{LittleElementor::Helpers::L[o.l]}<sup>#{o.electrons_count}</sup>, " }
+    str[0..str.length-3]
+  end
+
   begin
     e = get_el()
-    erb :index, locals: {element: e}
-  rescue
-    "We Have An Error!"
+    erb :index, locals: {element: e, error: false}
+  rescue 
+    erb :index, locals: {error: true, element: nil}
   end
 end

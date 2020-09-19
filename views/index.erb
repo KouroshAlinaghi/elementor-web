@@ -7,6 +7,11 @@
 </head>
   <body>
     <div class="container mt-4">
+      <% if error %>
+        <div class="alert alert-danger" role="alert">
+          There is an error!
+        </div>
+      <% end %>
       <form method="get" action="/" class="mb-4">
         <div class="row">
           <div class="col">
@@ -52,9 +57,10 @@
             <td><%= element.is_nobel_gas ? "Yes" : "No" %></td>
           </tr>
         </table> 
-        <p><b>Sorted Electron Configuration: </b><%= element.electron_configuration.map(&:to_s).join(", ") %><p>
-        <p><b>Non-Sorted Electron Configuration: </b><%= element.electron_configuration(sorted: false).map(&:to_s).join(", ") %><p>
+        <p><b>Sorted Electron Configuration: </b><%= electron_configuration_to_s(element.electron_configuration) %><p>
+        <p><b>Non-Sorted Electron Configuration: </b><%= electron_configuration_to_s(element.electron_configuration(sorted: false)) %><p>
       </div>
+  
     <% end %>
   </body>
 </html>

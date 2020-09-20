@@ -59,6 +59,7 @@
         </table> 
         <p><b>Sorted Electron Configuration: </b><%= electron_configuration_to_s(element.electron_configuration) %><p>
         <p><b>Non-Sorted Electron Configuration: </b><%= electron_configuration_to_s(element.electron_configuration(sorted: false)) %><p>
+        <p><b>Compressed Electron Configuration: </b><%= element.human_friendly_c_e_c() %><p>
       </div>
   
     <% end %>

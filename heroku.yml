@@ -2,4 +2,4 @@ build:
   docker:
     web: Dockerfile
 run:
-  web: rb server.rb
+  web: ruby server.rb

@@ -1,50 +1,51 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fa" dir="rtl">
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Welcome To Elementor!</title>
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazir-font@v[X.Y.Z]/dist/font-face.css" rel="stylesheet" type="text/css" />
+  <link rel="stylesheet" href="https://cdn.rtlcss.com/bootstrap/v4.5.3/css/bootstrap.min.css" integrity="sha384-JvExCACAZcHNJEc7156QaHXTnQL3hQBixvj5RV5buE7vgnNEzzskDtx9NQ4p6BJe" crossorigin="anonymous">
 </head>
-  <body>
+  <body style="font-family: Vazir">
     <div class="container mt-4">
       <% if error %>
         <div class="alert alert-danger" role="alert">
-          There is an error!
+          مشکلی پیش آمده!
         </div>
       <% end %>
       <form method="get" action="/" class="mb-4">
         <div class="row">
           <div class="col">
-            <label for="a_n">Atomic Number</label>
+            <label for="a_n">عدد اتمی</label>
             <input type="number" name="atomic_number" id="a_n" class="form-control" max="118" min="1">
           </div>
           <div class="col">
-            <label for="s">Symbol</label>
+            <label for="s">نماد</label>
             <input type="text" name="symbol" id="s" class="form-control">
           </div>
           <div class="col">
-            <label for="c">Charge</label>
+            <label for="c">بار</label>
             <input type="number" name="charge" value="0" class="form-control" id="c">
           </div>
           <div class="col">
             <br>
-            <button type="submit" class="btn btn-primary mt-2">Search</button>
+            <button type="submit" class="btn btn-primary mt-2">جستجو</button>
           </div>
         </div>
       </form>
     
     <% if element.nil? %>
-      <h3>Please Fill The Above Form</h3>
+      <h3>لطفا فرم بالا را پر کنید</h3>
     <% else %>
         <h1><%= element.symbol %></h1>
         <table class="table table-bordered table-responsive-md">
           <tr>
-            <th>Full Name</th>
-            <th>Atomic Number</th>
-            <th>Charge</th>
-            <th>Group</th>
-            <th>Period</th>
-            <th>Is a nobel gas?</th>
+            <th>نام کامل</th>
+            <th>عدد اتمی</th>
+            <th>بار</th>
+            <th>گروه</th>
+            <th>دوره</th>
+            <th>آیا گاز نجیب است؟</th>
           </tr>
           <tr>
             <td><%= element.name.capitalize %></td>
@@ -55,9 +56,9 @@
             <td><%= element.is_nobel_gas ? "Yes" : "No" %></td>
           </tr>
         </table> 
-        <p><b>Sorted Electron Configuration: </b><%= electron_configuration_to_s(element.electron_configuration) %><p>
-        <p><b>Non-Sorted Electron Configuration: </b><%= electron_configuration_to_s(element.electron_configuration(sorted: false)) %><p>
-        <p><b>Compressed Electron Configuration: </b><%= element.human_friendly_c_e_c() %><p>
+        <p><b> آرایش الکترونی مرتب‌شده:</b><%= electron_configuration_to_s(element.electron_configuration) %><p>
+        <p><b>آرایش الکترونی مرتب‌نشده: </b><%= electron_configuration_to_s(element.electron_configuration(sorted: false)) %><p>
+        <p><b>آرایش الکترونی فشرده: </b><%= element.human_friendly_c_e_c() %><p>
       </div>
   
     <% end %>

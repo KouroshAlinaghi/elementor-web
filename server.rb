@@ -2,6 +2,7 @@ require 'sinatra'
 require 'little_elementor'
 
 get "/" do
+
   def get_el()
     if params.has_key?(:atomic_number) && !params[:atomic_number].empty?
       e = LittleElementor::Element.new(atomic_number: params[:atomic_number].to_i, charge: params[:charge].to_i)

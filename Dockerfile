@@ -1,8 +1,7 @@
-FROM sashaegorov/docker-alpine-sinatra
+FROM ruby:2.7-alpine3.12
 
-WORKDIR /elementor
-RUN gem install little-elementor -v 0.2.0
-RUN gem install sinatra rake rack-test
-COPY . /elementor
+WORKDIR /ttt
+RUN bundle install
+COPY . /ttt
 
-CMD ["ruby", "server.rb"]
+CMD ["ruby", "main.rb"]

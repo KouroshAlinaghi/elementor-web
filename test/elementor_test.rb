@@ -73,6 +73,6 @@ class ElementorTest < Test::Unit::TestCase
   end
 
   private def not_error
-    !last_response.body.include?('error')
+    !last_response.body.include?('مشکلی')
   end
 end
